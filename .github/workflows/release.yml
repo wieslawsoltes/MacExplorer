@@ -39,7 +39,7 @@ jobs:
           persist-credentials: false
       - name: Require a release commit from main
         run: git merge-base --is-ancestor "$GITHUB_SHA" origin/main
-      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
           name: MacExplorer-universal
           path: dist
@@ -105,7 +105,7 @@ jobs:
           persist-credentials: false
       - name: Require a main-branch release commit
         run: git merge-base --is-ancestor "$GITHUB_SHA" origin/main
-      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
           name: ${{ needs.sign.result == 'success' && 'MacExplorer-notarized' || 'MacExplorer-universal' }}
           path: release/dist
